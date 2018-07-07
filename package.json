@@ -1,0 +1,35 @@
+{
+  "name": "mongoscraper",
+  "version": "1.0.0",
+  "description": "create a web app that lets users view and leave comments on the latest news",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Maribel Jaramillo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.1.7",
+    "morgan": "^1.9.0",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marijar84/mongoScraper.git"
+  },
+  "keywords": [
+    "mongo",
+    "scraper"
+  ],
+  "bugs": {
+    "url": "https://github.com/marijar84/mongoScraper/issues"
+  },
+  "homepage": "https://github.com/marijar84/mongoScraper#readme"
+}
