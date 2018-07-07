@@ -12,7 +12,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -148,7 +148,7 @@ app.delete("/articles/:id", function (req, res) {
         '_id': req.body._id
     })
         .then(function (dbArticle) {
-            // If we were able to successfully find an Article with the given id, send it back to the client
+            // If we were ableMONGODB_URI to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
         })
         .catch(function (err) {
