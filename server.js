@@ -56,25 +56,43 @@ app.get("/scrape", function (req, res) {
 
             if (title != "" && summary != "") {
 
-                //console.log(summary);
-
-                // Add the text and href of every link, and save them as properties of the result object
                 result.title = title;
-
                 result.link = $(element).children("h2").children("a").attr("href");
-
                 result.summary = summary;
-
                 articles.push(result);
+
+                // db.Article.find({
+                //     title: title,
+                //     summary: summary
+                // }).then(function (dbArticle) {
+
+                //     var articleCount = dbArticle.length;
+                //     console.log("1",articleCount);
+
+                //     return darticleCount;
+
+                // }).then(function (articleCount) {
+                //     console.log("2",articleCount);
+                //     if (articleCount === 0) {
+                //         console.log("if");
+                //         result.title = title;
+                //         result.link = $(element).children("h2").children("a").attr("href");
+                //         result.summary = summary;
+                //         console.log(result);
+                //         articles.push(result);
+                //     }
+                // })
+                //     .catch(function (err) {
+                //         //res.json(err);
+                //     });
             }
         });
-
-        console.log(articles);
-
         // If we were able to successfully scrape and save an Article, send a message to the client
         res.json(articles);
     });
 });
+
+
 
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
@@ -129,6 +147,8 @@ app.post("/articles/:id", function (req, res) {
 
 app.delete("/articlesbynote/:id", function (req, res) {
     // Create a new note and pass the req.body to the entry
+    console.log(req.body._id);
+
     db.Note.findOneAndRemove({
         '_id': req.body._id
     })
